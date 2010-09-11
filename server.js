@@ -2,7 +2,7 @@ var sys = require('sys'),
 eyes = require('eyes'),
 http = require('http'),
 httpProxy = require('http-proxy'),
-httpCache = require('./lib/http-cache');
+httpCache = require('http-cache');
 
  // create a front-facing http server, this httpServer will be the first thing all incoming requests hit
  http.createServer(function (req, res){
@@ -14,11 +14,8 @@ httpCache = require('./lib/http-cache');
      var cachedResponse = httpCache.get(req.url);
 
      // now lets write the cached response!
-     res.writeHead(200, {
-       'Content-Type': 'text/plain',
-       'X-nodejitsu': 'you got cached!'
-       });
-     res.write(cachedResponse);
+     res.writeHead(200, cachedResponse.headers);
+     res.write(cachedResponse.body);
      res.end();
      
    }
@@ -27,12 +24,12 @@ httpCache = require('./lib/http-cache');
      // if it's not in the cache, let's put it in the cache and respond!
      var proxy = new httpProxy.HttpProxy(req, res);
      proxy.proxyRequest(9000, 'localhost', req, res);
-     proxy.emitter.on('proxy', function(err, body){
+     proxy.emitter.on('proxy', function(err, body, headers){
        if(err){
          eyes.inspect(err);
        }
        else{
-         httpCache.set(req.url, body);
+         httpCache.set(req.url, body, headers);
        }
      });
 
