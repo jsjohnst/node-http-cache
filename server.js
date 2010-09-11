@@ -1,7 +1,7 @@
 var sys = require('sys'),
 eyes = require('eyes'),
 http = require('http'),
-httpProxy = require('http-proxy'),
+HttpCache = require('http-proxy'),
 httpCache = require('http-cache');
 
  // create a front-facing http server, this httpServer will be the first thing all incoming requests hit
@@ -22,7 +22,7 @@ httpCache = require('http-cache');
    else{
 
      // if it's not in the cache, let's put it in the cache and respond!
-     var proxy = new httpProxy.HttpProxy(req, res);
+     var proxy = new HttpCache.HttpCache(req, res);
      proxy.proxyRequest(9000, 'localhost', req, res);
      proxy.emitter.on('proxy', function(err, body, headers){
        if(err){
