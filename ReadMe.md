@@ -7,7 +7,7 @@ node-http-cache is a dirt simple in-memory cache for http requests. it has an ea
 #### Author: [Marak Squires](http://github.com/marak/)
 
 
-# node-http-cache - v0.3.0
+# node-http-cache - v0.1.0
 
 ### Features
 
