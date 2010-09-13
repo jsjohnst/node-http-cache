@@ -18,7 +18,7 @@ node-http-cache is a dirt simple in-memory cache for http requests. it has an ea
 
 ### When to use node-http-cache
 
-let's suppose you have a web application that serves http requests. by using http-cache you can seamlessly cache sections of your web application. this can drastically increase site performance without requiring any modifications to your existing application. 
+let's suppose you have a web application that serves http requests, by using http-cache you can seamlessly cache the entire site in one line and drastically increase site performance without making ANY modifications to your existing code base. if you require more fine-tuned control, you can assign caching best on regex routes using http-cache's API (which can be used as a CommonJS module, or as a JSON-RPC web-service)
 
 ### Installing npm (node package manager)
 <pre>
