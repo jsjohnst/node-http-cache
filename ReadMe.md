@@ -46,12 +46,22 @@ let's suppose you have a web application that serves http requests, by using htt
   }).listen(9000);
 </pre>
 
+### How to cache requests in an existing node.js application
+
+### How to setup a customized caching server using regex routes
+
+#### coming soon...
+
+### How to talk to http-cache over JSON-RPC
+
+#### coming soon...
+
 See the [demo](http://github.com/nodejitsu/node-http-cache/blob/master/demo.js) for further examples.
 
 
 ### Why doesn't node-http-cache have more advanced features like x, y, or z?
 
-If you have a suggestion for a feature currently not supported, feel free to open a [support issue](http://github.com/nodejitsu/node-http-cache/issues). node-http-cache is designed to just cache http requests from one server to another, but we will be soon releasing many other complimentary projects that can be used in conjunction with node-http-cache.
+if you have a suggestion for a feature currently not supported, feel free to open a [support issue](http://github.com/nodejitsu/node-http-cache/issues). node-http-cache is designed to just cache http requests
 
 <br/>
 ### License
